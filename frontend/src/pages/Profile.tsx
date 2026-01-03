@@ -10,6 +10,10 @@ import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { User, MapPin, Mail, Phone, Pencil, Plus } from 'lucide-react';
 
+// MODIFIED: Import SalaryInfo (Matches your screenshot location in components/ui)
+// Ensure your file is named 'salaryInfo.tsx' or rename it to 'SalaryInfo.tsx'
+import SalaryInfo from '@/components/ui/salaryInfo'; 
+
 export default function Profile() {
   const { user } = useAuth();
   
@@ -139,27 +143,9 @@ export default function Profile() {
 
               {/* Salary Info Tab Content (Admin Only) */}
               <TabsContent value="salary" className="mt-0">
-                 <Card>
-                    <CardHeader className="flex flex-row items-center justify-between">
-                        <CardTitle>Salary Structure</CardTitle>
-                        <Badge variant="destructive">Confidential</Badge>
-                    </CardHeader>
-                    <CardContent className="space-y-4">
-                       <div className="grid grid-cols-2 gap-4">
-                          <div className="p-4 bg-muted rounded-lg border">
-                             <div className="text-sm text-muted-foreground">Basic Salary</div>
-                             <div className="text-2xl font-bold">₹25,000</div>
-                          </div>
-                          <div className="p-4 bg-muted rounded-lg border">
-                             <div className="text-sm text-muted-foreground">HRA</div>
-                             <div className="text-2xl font-bold">₹12,500</div>
-                          </div>
-                       </div>
-                       <div className="text-xs text-muted-foreground italic">
-                          * Visible only to Admin/HR roles.
-                       </div>
-                    </CardContent>
-                 </Card>
+                  {/* MODIFIED: Replaced the old card code with the new component */}
+                  {/* This line replaces the ~20 lines of code you had here previously */}
+                  <SalaryInfo />
               </TabsContent>
             </div>
 
@@ -173,9 +159,9 @@ export default function Profile() {
                 </CardHeader>
                 <CardContent className="flex-1 pt-4">
                   <div className="flex flex-wrap gap-2">
-                     <Badge variant="secondary">React</Badge>
-                     <Badge variant="secondary">TypeScript</Badge>
-                     <Badge variant="secondary">Tailwind</Badge>
+                      <Badge variant="secondary">React</Badge>
+                      <Badge variant="secondary">TypeScript</Badge>
+                      <Badge variant="secondary">Tailwind</Badge>
                   </div>
                 </CardContent>
                 <div className="p-4 pt-0 mt-auto border-t bg-muted/20">
